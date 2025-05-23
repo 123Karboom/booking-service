@@ -75,10 +75,10 @@ app.use('/api/bookings', bookingRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/uploads', uploadRoutes);
 app.use('/api/categories', categoryRoutes);
-// Khởi tạo Swagger
+
 swaggerDocs(app);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
