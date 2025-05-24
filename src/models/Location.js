@@ -1,15 +1,6 @@
 const { default: mongoose } = require("mongoose");
 
-/**
- * @swagger
- * components:
- *   schemas:
- *     Location:
- *       type: object
- *       required:
- *         - city
- *         - country
- */
+
 const locationSchema = new mongoose.Schema({
   city: {
     type: String,

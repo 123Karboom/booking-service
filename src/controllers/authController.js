@@ -10,7 +10,7 @@ const register = async (req, res) => {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({
-        status: 'fail',
+        status: '400',
         message: 'Email already exists',
         errors: [{ field: 'email', message: 'Email already exists' }]
       });
@@ -25,7 +25,7 @@ const register = async (req, res) => {
     
     // Trả về kết quả
     res.status(201).json({
-      status: 'success',
+      status: '201',
       data: {
         user: {
           _id: user._id,
@@ -41,7 +41,7 @@ const register = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
-      status: 'error',
+      status: '500',
       message: error.message || 'Registration failed'
     });
   }
@@ -80,7 +80,7 @@ const login = async (req, res) => {
     });
   }catch(error){
     return res.status(500).json({
-      status: 'error',
+      status: '500',
       message: error.message || 'Login failed'
     });
   }
@@ -92,7 +92,7 @@ const logout = async (req, res) => {
     if(!token){
       return res.status(400).json({
         status: '400',
-        message: 'Token is required'
+        message: 'Access token is required'
       })
     }
     const decoded = jwt.verify(token, process.env.JWT_SECRET);

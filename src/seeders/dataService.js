@@ -10,7 +10,7 @@ const data = [
     category: "cat001",
     isActive: true
   },
- {
+  {
   _id: "cat002",
     name: "Hair",
     description: "Các dịch vụ cắt, nhuộm và tạo kiểu tóc",
@@ -18,6 +18,10 @@ const data = [
     is_popular: true,
     display_order: 2,
     services: []
- }
+  },
+  {
+    _id: "cat003",
+    name: "Face",
+  }
 
 ]

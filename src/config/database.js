@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-//connect to mongodb
+
 const connectDB = async () => {
   try 
   { 

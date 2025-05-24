@@ -48,7 +48,7 @@ const swaggerDocs = (app) => {
     res.send(swaggerSpec);
   });
 
-  console.log(`Docs available at http://localhost:5000/api-docs`);
+  console.log(`Docs available at http://localhost:8080/api-docs`);
 };
 
 module.exports = { swaggerDocs }; 

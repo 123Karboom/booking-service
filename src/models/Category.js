@@ -34,6 +34,14 @@ const categorySchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  is_active: {
+    type: Boolean,
+    default: true
+  }, 
+  is_deleted: {
+    type: Boolean,
+    default: false
+  },
  }, { timestamps: true });
 
 // Tạo index

@@ -6,11 +6,8 @@ const connectDB = require('./src/config/database');;
 const authRoutes= require('./src/routes/authRoutes');
 const bookingRoutes = require('./src/routes/bookingRoutes');
 const serviceRoutes = require('./src/routes/serviceRoutes');
-const { morganApiFormat, logger } = require('./src/config/logging');
-const loggerMiddleware = require('./src/middlewares/loggerMiddleware');
-const { swaggerDocs } = require('./src/config/swagger');
-const uploadRoutes = require('./src/routes/uploadRoutes');
 const categoryRoutes = require('./src/routes/categoryRouter');
+const { seedCategories } = require('./src/seeders/dataCategory');
 dotenv.config();
 connectDB();
 
@@ -70,13 +67,24 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+const data = {
+  fullName: 'Nghia Le', 
+  role: 'NodeJS Backend Developer',
+  email: 'lehieunghia2402@gmail.com', 
+  accessed: 'https://www.accessed.co/user/le_hieu_nghia',
+}
+// seedCategories();
+app.get('/', (req, res) => {
+  return res.json(data)
+}) 
 app.use('/api/auth', authRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/services', serviceRoutes);
-app.use('/api/uploads', uploadRoutes);
 app.use('/api/categories', categoryRoutes);
 
-swaggerDocs(app);
+
+
+// swaggerDocs(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

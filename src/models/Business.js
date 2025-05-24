@@ -20,7 +20,14 @@ const businessSchema = new mongoose.Schema({
     ref: 'Service',
     required: true,
   },
+  images: {
+    type: String,
+    required: false,
+  }, 
   
+  
+}, {
+  timestamps: true
 })
 
 const Business = mongoose.model('Business', businessSchema);
